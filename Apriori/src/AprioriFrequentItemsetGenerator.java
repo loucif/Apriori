@@ -146,11 +146,11 @@ public class AprioriFrequentItemsetGenerator<I> {
 
         for (Map.Entry<I, Integer> entry : map.entrySet()) {
             if ( 1.0 * entry.getValue() / map.size() >= minimumSupport) {
-            	if ( 1.0 * entry.getValue() / map.size() <= maximumSupport) { 
+            	//if ( 1.0 * entry.getValue() / map.size() <= maximumSupport) { 
                 Set<I> itemset = new HashSet<>(1);
                 itemset.add(entry.getKey());
                 frequentItemsetList.add(itemset);
-            	}
+            	//}
             }
         }
 
