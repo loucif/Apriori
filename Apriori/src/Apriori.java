@@ -25,14 +25,17 @@ public class Apriori {
 		itemsetList.add(new HashSet<>(Arrays.asList("a", "b", "d")));
 		itemsetList.add(new HashSet<>(Arrays.asList("b", "c", "e")));
 		
-		//FrequentItemsetData<String> data = generator.generate(DataSetFile.readArrfFile("C:\\Program Files\\Weka-3-8\\data\\contact-lenses.arff"), 0.2);
+		FrequentItemsetData<String> data = generator.generate(DataSetFile.readArrfFile("C:\\Program Files\\Weka-3-8\\data\\contact-lenses.arff"), 0.2, 0.5);
 		//FrequentItemsetData<String> data = generator.generate(DataSetFile.readTxtFile("census.dat", " "), 0.8);
 		//FrequentItemsetData<String> data = generator.generate(itemsetList, 0.2);
-		FrequentItemsetData<String> data = generator.generate(DataSetFile.readArrfFile("GroceryStoreDataSet.csv"), 0.1);
+		//FrequentItemsetData<String> data = generator.generate(DataSetFile.readArrfFile("GroceryStoreDataSet.csv"), 0.1);
 		
 		int i = 1;
 		for (Set<String> itemset : data.getFrequentItemsetList()) {
-			 System.out.printf("%2d: %9s, support: %1.1f\n", i++, itemset, data.getSupport(itemset));
+			
+			 System.err.print("L" + itemset.toString().split(",").length);
+			 System.out.print(" : " + itemset);
+			 System.err.println( " Support: " + data.getSupport(itemset));
 		}	
 	}
 }
